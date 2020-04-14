@@ -1,0 +1,15 @@
+<div>
+  <div>
+    <form [formGroup]="userLoginForm">
+      <mat-form-field><input type="text" name="userName" id="userName" matInput formControlName="userName">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" name="password" id="password" matInput formControlName="password">
+        <span> show</span>
+      </mat-form-field>
+      <button type="submit" [disabled]="!userLoginForm.valid">
+        Login
+      </button>
+    </form>
+  </div>
+</div>
