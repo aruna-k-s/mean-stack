@@ -1,15 +1,82 @@
-<div>
-  <div>
-    <form [formGroup]="userLoginForm">
-      <mat-form-field><input type="text" name="userName" id="userName" matInput formControlName="userName">
-      </mat-form-field>
-      <mat-form-field>
-        <input type="password" name="password" id="password" matInput formControlName="password">
-        <span> show</span>
-      </mat-form-field>
-      <button type="submit" [disabled]="!userLoginForm.valid">
-        Login
-      </button>
-    </form>
-  </div>
+<div class="_h-100 _w-100">
+
+
+  <mat-tab-group class="form-login">
+    <mat-tab label="Login">
+      <form [formGroup]="userLoginForm" class="_flex-box _col-flex ">
+        <mat-form-field class="_w-100">
+          <input type="text" class="_custom-input" name="userName" id="userName" matInput formControlName="userName">
+        </mat-form-field>
+        <mat-form-field class="_w-100">
+          <div class="_flex-box">
+            <input type="password" class="_custom-input" name="password" id="password" matInput
+              formControlName="password">
+            <button mat-icon-button (click)="showPassword = !showPassword;showLoginPassword('password'); stopPropagation($event)">
+              <span class="material-icons" *ngIf="!showPassword">
+                visibility
+              </span>
+              <span class="material-icons" *ngIf="showPassword">
+                visibility_off
+              </span>
+            </button>
+          </div>
+        </mat-form-field>
+        <button type="submit" mat-button [disabled]="!userLoginForm.valid">
+          Login
+        </button>
+      </form>
+    </mat-tab>
+    <mat-tab label="Register">
+      <form [formGroup]="userRegisterForm" class="_flex-box _col-flex ">
+        <mat-form-field class="_w-100">
+          <input type="text" name="userName" id="userName" class="_custom-input" matInput formControlName="userName">
+        </mat-form-field>
+        <mat-form-field class="_w-100">
+          <div class="_flex-box">
+            <input type="password" name="password" id="password" class="_custom-input" matInput
+              formControlName="password">
+            <button mat-icon-button (click)="showPassword = !showPassword;showLoginPassword('password'); stopPropagation($event)">
+              <span class="material-icons" *ngIf="!showPassword">
+                visibility
+              </span>
+              <span class="material-icons" *ngIf="showPassword">
+                visibility_off
+              </span>
+            </button>
+          </div>
+        </mat-form-field>
+        <mat-form-field class="_w-100">
+          <div class="_flex-box">
+            <input type="password" name="confPassword" id="confPassword" class="_custom-input" matInput
+              formControlName="confPassword">
+            <button mat-icon-button (click)="confPassword = !confPassword;showLoginPassword('confPassword'); stopPropagation($event)">
+              <span class="material-icons" *ngIf="!confPassword">
+                visibility
+              </span>
+              <span class="material-icons" *ngIf="confPassword">
+                visibility_off
+              </span>
+            </button>
+          </div>
+        </mat-form-field>
+        <button type="submit" mat-button [disabled]="!userRegisterForm.valid">
+          Register
+        </button>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+
+
 </div>
+
+<!-- <form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Favorite food</mat-label>
+    <input matInput placeholder="Ex. Pizza" value="Sushi">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Leave a comment</mat-label>
+    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+  </mat-form-field>
+</form> -->
