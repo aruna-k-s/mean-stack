@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "mean-stack-pro"
+  "defaultProject": "mean-stack-pro",
+  "cli": {
+    "analytics": false
+  }
 }
