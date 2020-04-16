@@ -4,12 +4,12 @@
   <mat-tab-group class="form-login">
     <mat-tab label="Login">
       <form [formGroup]="userLoginForm" class="_flex-box _col-flex ">
-        <mat-form-field class="_w-100">
-          <input type="text" class="_custom-input" name="userName" id="userName" matInput formControlName="userName">
+        <mat-form-field class="_w-100 _custom-input">
+          <input type="email"  placeholder="user name" name="email" id="email" matInput formControlName="email">
         </mat-form-field>
-        <mat-form-field class="_w-100">
+        <mat-form-field class="_w-100 _custom-input">
           <div class="_flex-box">
-            <input type="password" class="_custom-input" name="password" id="password" matInput
+            <input type="password"  placeholder="password" name="password" id="password" matInput
               formControlName="password">
             <button mat-icon-button (click)="showPassword = !showPassword;showLoginPassword('password'); stopPropagation($event)">
               <span class="material-icons" *ngIf="!showPassword">
@@ -28,12 +28,12 @@
     </mat-tab>
     <mat-tab label="Register">
       <form [formGroup]="userRegisterForm" class="_flex-box _col-flex ">
-        <mat-form-field class="_w-100">
-          <input type="text" name="userName" id="userName" class="_custom-input" matInput formControlName="userName">
+        <mat-form-field class="_w-100 _custom-input" >
+          <input type="email" name="email" id="email" placeholder="Email" matInput formControlName="email">
         </mat-form-field>
-        <mat-form-field class="_w-100">
+        <mat-form-field class="_w-100 _custom-input" >
           <div class="_flex-box">
-            <input type="password" name="password" id="password" class="_custom-input" matInput
+            <input type="password" name="password" placeholder="password" id="password"  matInput
               formControlName="password">
             <button mat-icon-button (click)="showPassword = !showPassword;showLoginPassword('password'); stopPropagation($event)">
               <span class="material-icons" *ngIf="!showPassword">
@@ -45,9 +45,9 @@
             </button>
           </div>
         </mat-form-field>
-        <mat-form-field class="_w-100">
+        <mat-form-field class="_w-100 _custom-input">
           <div class="_flex-box">
-            <input type="password" name="confPassword" id="confPassword" class="_custom-input" matInput
+            <input type="password" name="confPassword" id="confPassword" placeholder="confirm password"  matInput
               formControlName="confPassword">
             <button mat-icon-button (click)="confPassword = !confPassword;showLoginPassword('confPassword'); stopPropagation($event)">
               <span class="material-icons" *ngIf="!confPassword">

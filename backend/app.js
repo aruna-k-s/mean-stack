@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const Post = require('./models/post');
+const userRoutes = require('./routes/user');
 
 const app = express();
 mongoose.connect("mongodb+srv://arun:k4aEdcaFlKO6WBVW@cluster0-xjxay.mongodb.net/node-angular?retryWrites=true&w=majority")
@@ -67,5 +68,8 @@ app.get('/api/posts', (req, res, next) => {
         })
     })
 })
+
+
+app.use("/api/user",userRoutes);
 
 module.exports = app;
