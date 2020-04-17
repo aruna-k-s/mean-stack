@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'login',
@@ -8,20 +9,23 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   userRegisterForm: FormGroup;
-  userLoginForm : FormGroup;;
-  constructor() { }
+  userLoginForm: FormGroup;
+  constructor(private http: HttpClient) { }
 
-  
+
   showPassword = false;
   confPassword = false;
+  regPassword;
+  regEmail;
+  confRegPassword;
 
   ngOnInit() {
     this.userLoginForm = new FormGroup({
-      userName: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     });
     this.userRegisterForm = new FormGroup({
-      userName: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       confPassword: new FormControl('', Validators.required)
     });
@@ -34,5 +38,18 @@ export class LoginComponent implements OnInit {
   showLoginPassword(element) {
     const ele = document.getElementById(element);
     this.showPassword ? ele.setAttribute('type', 'text') : ele.setAttribute('type', 'password');
+  }
+
+  registerUser() {
+    this.userRegisterForm.removeControl('confPassword');
+    this.http.post('http://localhost:3000/api/user/register', this.userRegisterForm.value).subscribe(res => {
+      console.log(res);
+    })
+  }
+
+  loginUser() {
+    this.http.post('http://localhost:3000/api/user/login', this.userLoginForm.value).subscribe(res => {
+      console.log(res);
+    })
   }
 }

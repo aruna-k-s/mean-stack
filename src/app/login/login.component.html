@@ -21,13 +21,13 @@
             </button>
           </div>
         </mat-form-field>
-        <button type="submit" mat-button [disabled]="!userLoginForm.valid">
+        <button type="submit" mat-button [disabled]="!userLoginForm.valid" (click)="loginUser()">
           Login
         </button>
       </form>
     </mat-tab>
     <mat-tab label="Register">
-      <form [formGroup]="userRegisterForm" class="_flex-box _col-flex ">
+      <form [formGroup]="userRegisterForm"  class="_flex-box _col-flex ">
         <mat-form-field class="_w-100 _custom-input" >
           <input type="email" name="email" id="email" placeholder="Email" matInput formControlName="email">
         </mat-form-field>
@@ -59,7 +59,7 @@
             </button>
           </div>
         </mat-form-field>
-        <button type="submit" mat-button [disabled]="!userRegisterForm.valid">
+        <button type="submit" mat-button  [disabled]="!userRegisterForm.valid" (click)="registerUser()">
           Register
         </button>
       </form>
