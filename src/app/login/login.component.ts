@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'login',
@@ -42,13 +43,13 @@ export class LoginComponent implements OnInit {
 
   registerUser() {
     this.userRegisterForm.removeControl('confPassword');
-    this.http.post('http://localhost:3000/api/user/register', this.userRegisterForm.value).subscribe(res => {
+    this.http.post( environment.api_url + 'user/register', this.userRegisterForm.value).subscribe(res => {
       console.log(res);
     })
   }
 
   loginUser() {
-    this.http.post('http://localhost:3000/api/user/login', this.userLoginForm.value).subscribe(res => {
+    this.http.post( environment.api_url + 'user/login', this.userLoginForm.value).subscribe(res => {
       console.log(res);
     })
   }
